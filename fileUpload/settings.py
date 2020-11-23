@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'upload',
     'testcsv',
-    'django_tables2',
+
 ]
 
 MIDDLEWARE = [
