@@ -1,11 +1,24 @@
 {% extends 'home.html' %}
 
 {% block content %}
+
+<div class="container pt-3 mb-5 pb-5" style="height: 100vh">
+  <div class="row justify-content-end my-5">
+    <a href="{% url  'home'%}" class="btn btn-outline-primary">Home</a>
+  </div>
+
+<div class="row align-items-center justify-content-center">
   <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Upload</button>
+    <div class="text-center">
+      <button class="btn btn-outline-primary" type="submit">Upload</button>
+
+    </div>
   </form>
+</div>
+  
+</div>
 
   <p><a href="{% url 'home' %}">Return to home</a></p>
 {% endblock %}
