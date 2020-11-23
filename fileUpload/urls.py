@@ -23,12 +23,18 @@ from django.conf.urls.static import static
 
 from upload import views
 
+
+from testcsv.views import profile_upload,profile
+
 urlpatterns = [
     url(r'^$', views.home, name='home'),
     url(r'^uploads/simple/$', views.simple_upload, name='simple_upload'),
     url(r'^uploads/form/$', views.model_form_upload, name='model_form_upload'),
     url(r'gallery/',views.gallery,name='gallery'),
     path('admin/', admin.site.urls),
+
+    url('upload-csv/', profile_upload, name="profile_upload"),
+    url('csv-data/', profile, name="profile")
 ]
 
 if settings.DEBUG:

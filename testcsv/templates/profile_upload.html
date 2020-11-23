@@ -1,0 +1,45 @@
+
+{% extends 'home.html' %}
+{% block content %}
+<div class="container pt-3 mb-5 pb-5" style="height: 100vh">
+    <div class="row justify-content-end my-2">
+        <a href="{% url  'home'%}" class="btn btn-outline-primary">Home</a>
+    </div>
+    <div class="row align-items-center justify-content-center"  style="height: 10vh;">
+        <label for="file1"> Order of the CSV should be name, email, address, phone, profile</label>
+    </div>
+
+    <div style="height: 60vh;">
+        {% if messages %}
+        {% for message in messages %}
+            <div class="row align-items-center justify-content-center" style="height: -10vh;">
+                <strong>{{message|safe}}</strong>
+            </div>
+        {% endfor %}
+        {% else %}
+        <!-- {{order}} -->
+       
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="text-center" style="height: 5vh;">
+                <label for="file1"> Upload a file</label>
+            </div>
+            
+            <div class="text-center" style="height: 10vh;">
+                <input type="file" id="file1" name="file">
+            </div>
+            <!-- <div class="text-center" style="height: 5vh;">
+                <small>Only accepts CSV files</small>
+            </div> -->
+            <div class="text-center" style="height: 5vh;">
+                <button class="btn btn-outline-primary" type="submit">Upload</button>
+          
+            </div>
+        </form>
+    </div>
+</div>
+    {% endif %}
+    {% for profile in profiles %}
+    <!-- {{profile.name}} -->
+    {% endfor %}
+{% endblock %}
